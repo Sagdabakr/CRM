@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CRM.Views.LoginForm"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:dxdf="clr-namespace:DevExpress.XamarinForms.DataForm;assembly=DevExpress.XamarinForms.Editors"
+             xmlns:dxe="clr-namespace:DevExpress.XamarinForms.Editors;assembly=DevExpress.XamarinForms.Editors"
+>
+
+    <StackLayout BackgroundColor="Black">
+
+        <Frame BackgroundColor="#FAFAFA" VerticalOptions="FillAndExpand" CornerRadius="60" IsClippedToBounds="True" Padding="0" Margin="2,110,-50,-50">
+            <StackLayout Background="#FAFAFA" HorizontalOptions="Center" Margin="0,0,50,0" VerticalOptions="FillAndExpand" >
+                <StackLayout  Spacing="30" VerticalOptions="Start" Margin="50">
+                    <Label Text="Login" TextColor="Black" FontFamily="{StaticResource AppFont}" FontSize="45" HorizontalOptions="Center" />
+                </StackLayout>
+                <StackLayout Margin="50,0" Spacing="10" VerticalOptions="Center">
+                    <dxe:TextEdit  x:Name="UserName" LabelText="User Name"  />
+                    <dxe:PasswordEdit x:Name="Password" LabelText="Password"/>
+                    <dxe:ComboBoxEdit LabelFontSize="20" TextFontSize="20" x:Name="SelectedLang" LabelText="Language"/>
+                    <dxe:SimpleButton  Text="Login" Margin="0,25" HorizontalOptions="FillAndExpand"  Pressed="OnLoginPressed" />
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+     
+</ContentPage>

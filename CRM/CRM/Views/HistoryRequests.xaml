@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Name="Conttent" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:dxg="http://schemas.devexpress.com/xamarin/2014/forms/datagrid"
+             x:Class="CRM.Views.HistoryRequests"
+             NavigationPage.HasNavigationBar="False">
+    <StackLayout Spacing="0" Background="#FAFAFA">
+        <Frame Margin="0" HorizontalOptions="FillAndExpand" Padding="0,7" IsClippedToBounds="True" BackgroundColor="Transparent" HasShadow="False">
+            <StackLayout Orientation="Horizontal" Spacing="15" Margin="0"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" >
+                <Frame IsClippedToBounds="True" HasShadow="False" Padding="3" Margin="10,0,0,0" BackgroundColor="Transparent">
+                    <Image Source="arrow.png" HeightRequest="27"  WidthRequest="27"/>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BackTapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Label Text="Request History" Margin="0" FontAttributes="Bold" TextColor="Black" FontSize="20" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+        </Frame>
+        <BoxView HeightRequest="0.7" Margin="0" Color="#E5E5E7"/>
+
+       
+            <dxg:DataGridView BorderColor="#F7F7F8" BorderThickness="3" x:Name="HistoryRequestGrid" Margin="15,15,0,15" IsHorizontalScrollBarVisible="False" AllowVirtualHorizontalScrolling="True"  FixedColumnSeparatorWidth="5" >
+                <dxg:DataGridView.ColumnHeaderStyle>
+                    <dxg:ColumnHeaderStyle FontColor="#333333" BorderColor="Transparent" Padding="5,25" 
+                                 FontSize="16" FontAttributes="Bold" BottomBorderColor="#F7F7F8"
+                                 HorizontalLineThickness="3"/>
+                </dxg:DataGridView.ColumnHeaderStyle>
+
+                <dxg:DataGridView.CellStyle>
+                    <dxg:CellStyle Padding="15" BorderColor="#F7F7F8" 
+                               FontSize="15" SelectionColor="#F7F7F8" SelectionFontColor="Black"/>
+                </dxg:DataGridView.CellStyle>
+
+                <dxg:DataGridView.Columns >
+                    <dxg:TextColumn  FontColor="Black" FieldName="RequestNumber" Caption="Number" MinWidth="90" FixedStyle="Start" HorizontalContentAlignment="Center" Padding="0" />
+                    <dxg:DateColumn   FontColor="Black" FieldName="RequestDateTime" Caption="Request Date" DisplayFormat="d" MinWidth="120" HorizontalContentAlignment="Center" />
+                    <dxg:DateColumn   FontColor="Black"  FieldName="StatusValue" Caption="Request Status" MinWidth="150" HorizontalContentAlignment="Center"/>
+                    <dxg:TextColumn   FontColor="Black" FieldName="RequestDescription" Caption="Description" MinWidth="250" HorizontalContentAlignment="Center"  />
+                    <dxg:TextColumn   FontColor="Black" FieldName="TypeOfService" Caption="Type Of Service" MinWidth="130" HorizontalContentAlignment="Center"/>
+                </dxg:DataGridView.Columns>
+            </dxg:DataGridView>
+     
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CRM.Views.RequestForm"
+             xmlns:dxdf="clr-namespace:DevExpress.XamarinForms.DataForm;assembly=DevExpress.XamarinForms.Editors"
+             xmlns:dxe="clr-namespace:DevExpress.XamarinForms.Editors;assembly=DevExpress.XamarinForms.Editors"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="Black">
+            <StackLayout Orientation="Horizontal" Margin="0"  >
+                <Label Text="New Request" TextColor="White" Margin="55,10,0,0" FontFamily="{StaticResource AppFont}"  FontSize="25" HorizontalOptions="Center" VerticalOptions="Center" />
+            </StackLayout>
+            
+            <Frame BorderColor="#FAFAFA" BackgroundColor="#FAFAFA" VerticalOptions="FillAndExpand" CornerRadius="60" IsClippedToBounds="True" Padding="0,15" Margin="2,0,-50,-50">
+                <StackLayout Background="#FAFAFA" HorizontalOptions="Center" Margin="0,0,50,50" Spacing="20">
+
+                    <ScrollView  HorizontalOptions="Center" VerticalOptions="Center">
+                        <StackLayout  HorizontalOptions="Center" Spacing="9" Margin="50,10" >
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="25">
+                                <dxe:TextEdit LabelText="Request No" IsEnabled="False" x:Name="RequestNumber" TextHorizontalAlignment="Center"   />
+                                <dxe:DateEdit IsDateIconVisible="False" LabelText="Request Date" IsEnabled="False"  DisplayFormat="dd/M/yyyy" x:Name="RequestDate" Style="{StaticResource DateEdit_Form}"/>
+                            </StackLayout>
+
+                            <dxe:ComboBoxEdit  LabelText="Customer Name" ItemsSource="{Binding Customers}" x:Name="CustomerCombobox" SelectionChanged="OnNewCustomerSelected" DisplayMember="EnglishCustomerName" />
+
+                            <StackLayout  x:Name="CustomerDetails" IsVisible="False" >
+                                <Label Text="Tap For Customer Details" TextColor="Black" FontSize="17"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="CustomerDetailsTapped"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+                            <dxe:ComboBoxEdit   x:Name="TypeOfServiceComboBox"      LabelText="Type Services"   SelectionChanged="OnTypeOfServiceChanged" DisplayMember="ServiceType" />
+                            <dxe:ComboBoxEdit   x:Name="StatusComboBox"             LabelText="Status" HorizontalOptions="FillAndExpand"  SelectionChanged="OnStatusChanged" IsEnabled="False"  />
+                            <dxe:DateEdit       x:Name="StatusDate"                 LabelText="Status Date"  DisplayFormat="dd/M/yyyy" HorizontalOptions="FillAndExpand" Style="{StaticResource DateEdit_Form}"  />
+                            <dxe:DateEdit       x:Name="Request_PreferredDate"      LabelText="Preferred Date" DisplayFormat="dd/M/yyyy"  Style="{StaticResource DateEdit_Form}"  />
+                            <dxe:TimeEdit       x:Name="Request_PreferredTime"      LabelText="Preferred Time"   />
+                            <dxe:DateEdit       LabelText="Actual Date" IsEnabled="False" Style="{StaticResource DateEdit_Form}" />
+                            <dxe:TimeEdit       LabelText="Actual Time" IsEnabled="False"   />
+                            <dxe:MultilineEdit  x:Name="Request_Description"        LabelText="Request Description"  />
+
+                            <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Spacing="15" Margin="0,10" >
+                                <Frame IsClippedToBounds="True" Padding="0" HasShadow="False">
+                                    <Image Source="call.png" HeightRequest="25" WidthRequest="25"/>
+                                </Frame>
+                                <Label Text="Call Us" TextColor="Black" FontSize="19"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="ContactUs_Clicked"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout>
+                                <dxe:SimpleButton  Text="Submit  Request" HorizontalOptions="FillAndExpand" Margin="5,7" Pressed="SubmitPressed"/>
+                                <dxe:SimpleButton  Text="Request History" HorizontalOptions="FillAndExpand" Margin="5,7" Pressed="HistoryPressed"/>
+                            </StackLayout>
+
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+
+            </Frame>
+        </StackLayout>
+
+
+
+
+
+
+
+      
+
+
+
+ 
+    </ContentPage.Content>
+</ContentPage>
